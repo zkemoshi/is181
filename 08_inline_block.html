@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inline Block</title>
+    <style>
+      /* Block level to Inline */
+
+      li {
+        display: inline;
+        /* border: 1px solid black; */
+        background-color: blue;
+        color: antiquewhite;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      img {
+        display: block;
+        margin: auto;
+      }
+      .btn {
+        margin-left: 20px;
+        border: none;
+        background-color: #4c6ca0;
+        padding: 10px 20px;
+        color: #fff;
+        text-decoration: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background-color: bisque;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Inline Block</h1>
+    <hr />
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Services</li>
+      <li>Contacts</li>
+    </ul>
+    <br />
+    <img src="img/leaf.png" alt="leaf image" />
+
+    <div>
+      <a href="#" class="btn">My Link</a>
+      <button class="btn">My Button</button>
+    </div>
+    <div style="margin-bottom: 1400px"></div>
+  </body>
+</html>
