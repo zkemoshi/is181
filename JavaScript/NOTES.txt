@@ -1,0 +1,16 @@
+Client Side-Programming with JavaScript
+-Scripts Vs Programs
+-Common tasks for Client Side
+-Data types and expressions
+-Control statements
+-Function and libraries
+-Strings and Arrays
+-Objects
+-Date
+-DOM
+-getElementById()
+-Events (Onload, Onunload,onClick,onChange,onfocus,onblur)
+-setTimeouts()
+-Creating Windows adn Cookies
+
+
