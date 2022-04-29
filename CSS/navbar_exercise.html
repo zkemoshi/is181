@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <style>
+      /* Reset CSS */
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .navbar {
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        background-color: #003580;
+      }
+      .navContainer {
+        width: 100%;
+        max-width: 960px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5px;
+        color: white;
+      }
+      .logo {
+        font-weight: 600;
+      }
+      .navButton {
+        margin-left: 20px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        color: #003580;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navContainer">
+        <span class="logo">Logo</span>
+        <div class="navItems">
+          <button class="navButton">Register</button>
+          <button class="navButton">Login</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
