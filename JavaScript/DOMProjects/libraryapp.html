@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Books</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul {
+        list-style: none;
+      }
+      ul li {
+        margin-bottom: 5px;
+        border-top: #ccc solid 1px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+      ul li:hover {
+        background-color: #f3f3f3;
+      }
+      ul li button:hover {
+        background-color: rgb(177, 40, 40);
+        color: #ccc;
+        cursor: pointer;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .bookstore {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        width: 350px;
+      }
+      .bookstore h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      .bookstore h3 {
+        margin: 1rem 0;
+        text-align: center;
+      }
+      .input-group {
+        margin-bottom: 10px;
+      }
+      .input-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .input-group input {
+        padding: 10px 15px;
+        border-radius: 5px;
+        width: 100%;
+        font-size: 18px;
+      }
+      #addBtn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: black;
+        color: #f3f3f3;
+        font-size: 20px;
+      }
+      #addBtn:hover {
+        background-color: rgb(66, 55, 55);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="bookstore">
+        <h1>Add a Book</h1>
+        <div class="input-group">
+          <label for="name">Book Name</label>
+          <input type="text" name="name" id="name" />
+        </div>
+        <div class="input-group">
+          <label for="author">Book Author</label>
+          <input type="text" name="author" id="author" />
+        </div>
+        <input type="button" value="Add Book" id="addBtn" />
+        <hr />
+        <h3>List of books</h3>
+        <ul class="list"></ul>
+      </div>
+    </div>
+
+    <script>
+      const list = document.querySelector('.list');
+      const addBook = document.querySelector('#addBtn');
+      const name = document.querySelector('#name');
+      const author = document.querySelector('#author');
+
+      addBook.addEventListener('click', () => {
+        const li = document.createElement('li');
+        const item = `<span>${name.value}</span>
+            <small>${author.value}</small>
+            <span>
+              <button id="del">Delete</button>
+            </span>`;
+        li.innerHTML = item;
+        if (name.value !== '' && author.value !== '') {
+          list.insertAdjacentElement('beforeend', li);
+        }
+      });
+
+      list.addEventListener('click', (e) => {
+        if (e.target.id === 'del') {
+          e.target.parentElement.parentElement.remove();
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BackgroundColor</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .innerbox {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 10px;
+        background-color: #f3f3f3;
+      }
+
+      .box {
+        height: 50px;
+        width: 50px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+      }
+      #box1,
+      #box2,
+      #box3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      #box1 {
+        background-color: #ffbf00;
+      }
+      #box2 {
+        background-color: #ff7f50;
+      }
+      #box3 {
+        background-color: #40e0d0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="innerbox" id="innerbox">
+        <div class="box" id="box1">1</div>
+        <div class="box" id="box2">2</div>
+        <div class="box" id="box3">3</div>
+      </div>
+    </div>
+
+    <script>
+      const box1 = document.querySelector('#box1');
+      const box2 = document.querySelector('#box2');
+      const box3 = document.querySelector('#box3');
+      const innerbox = document.querySelector('.innerbox');
+      const container = document.querySelector('.container');
+
+      // box1.addEventListener('click', function () {
+      //   container.style.backgroundColor = '#ffbf00';
+      // });
+      // box2.addEventListener('click', function () {
+      //   container.style.backgroundColor = '#ff7f50';
+      // });
+      // box3.addEventListener('click', function () {
+      //   container.style.backgroundColor = '#40e0d0';
+      // });
+
+      // Second way
+      container.addEventListener('click', function (e) {
+        let color;
+        switch (e.target.id) {
+          case 'innerbox':
+            color = '#fff';
+            break;
+          case 'box1':
+            color = '#ff7f50';
+            break;
+          case 'box2':
+            color = '#ffbf00';
+            break;
+          case 'box3':
+            color = '#40e0d0';
+            break;
+          default:
+            break;
+        }
+
+        container.style.backgroundColor = color;
+      });
+    </script>
+  </body>
+</html>
