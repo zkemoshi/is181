@@ -5,8 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+    </style>
   </head>
   <body>
-    <script src="app.js"></script>
+    <div class="container">
+      <div id="output"></div>
+      <label for="">FirstName</label>
+      <input type="text" id="firstName" />
+    </div>
+
+    <script>
+      const output = document.querySelector('#output');
+      const firstName = document.querySelector('#firstName');
+
+      firstName.addEventListener('keyup', function () {
+        output.innerText = firstName.value;
+      });
+    </script>
   </body>
 </html>
