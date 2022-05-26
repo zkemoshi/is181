@@ -12,6 +12,10 @@
         align-items: center;
         height: 100vh;
       }
+      .addBox {
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
       .input-group {
         margin-bottom: 10px;
       }
@@ -24,19 +28,21 @@
     <div class="container">
       <div class="addBox">
         <h1>Add Two Numbers</h1>
-        <div class="input-group">
-          <label for="firstNumber">First Number</label>
-          <input type="number" name="firstNumber" id="firstNumber" />
-        </div>
-        <div class="input-group">
-          <label for="secondNumber">Second Number</label>
-          <input type="number" name="secondNumber" id="secondNumber" />
-        </div>
-        <input type="submit" value="Add" class="btn" />
-        <input type="reset" value="Clear" class="clear" />
+        <form>
+          <div class="input-group">
+            <label for="firstNumber">First Number</label>
+            <input type="number" name="firstNumber" id="firstNumber" />
+          </div>
+          <div class="input-group">
+            <label for="secondNumber">Second Number</label>
+            <input type="number" name="secondNumber" id="secondNumber" />
+          </div>
+          <input type="submit" value="Add" class="btn" />
+          <input type="reset" value="Clear" class="clear" />
+        </form>
         <hr />
         <!-- Total of the Numbers -->
-        <div class="total">the sum of two numbers is 10</div>
+        <div class="total"></div>
       </div>
     </div>
 
@@ -47,19 +53,24 @@
       const add = document.querySelector('.btn');
       const clear = document.querySelector('.clear');
 
-      add.addEventListener('click', addition);
-      clear.addEventListener('click', (e) => {
+      add.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        if (firstNumber.value !== '' && secondNumber.value !== '') {
+          const sum =
+            parseInt(firstNumber.value) + parseInt(secondNumber.value);
+          const text = `The sum of ${firstNumber.value} and ${secondNumber.value} is: ${sum}`;
+          total.innerHTML = text;
+        } else {
+          total.innerHTML = 'Please fill all inpusts';
+        }
+      });
+
+      clear.addEventListener('click', function (e) {
         firstNumber.value = '';
         secondNumber.value = '';
         total.innerHTML = '';
       });
-
-      function addition(e) {
-        const sum = parseInt(firstNumber.value) + parseInt(secondNumber.value);
-
-        const p = `The sum of two numbers is ${sum}`;
-        total.innerHTML = p;
-      }
     </script>
   </body>
 </html>

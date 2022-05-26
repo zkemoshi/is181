@@ -11,24 +11,7 @@
         padding: 0;
         box-sizing: border-box;
       }
-      ul {
-        list-style: none;
-      }
-      ul li {
-        margin-bottom: 5px;
-        border-top: #ccc solid 1px;
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-      }
-      ul li:hover {
-        background-color: #f3f3f3;
-      }
-      ul li button:hover {
-        background-color: rgb(177, 40, 40);
-        color: #ccc;
-        cursor: pointer;
-      }
+
       .container {
         display: flex;
         justify-content: center;
@@ -77,6 +60,26 @@
       #addBtn:hover {
         background-color: rgb(66, 55, 55);
       }
+
+      /* List item CSS */
+      ul {
+        list-style: none;
+      }
+      ul li {
+        margin-bottom: 5px;
+        border-top: #ccc solid 1px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+      ul li:hover {
+        background-color: #f3f3f3;
+      }
+      ul li button:hover {
+        background-color: rgb(177, 40, 40);
+        color: #ccc;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -104,17 +107,20 @@
       const name = document.querySelector('#name');
       const author = document.querySelector('#author');
 
-      addBook.addEventListener('click', () => {
+      addBook.addEventListener('click', (e) => {
         const li = document.createElement('li');
-        const item = `<span>${name.value}</span>
+        const item = `
+            <span>${name.value}</span>
             <small>${author.value}</small>
             <span>
               <button id="del">Delete</button>
-            </span>`;
+            </span>
+          `;
+
         li.innerHTML = item;
-        if (name.value !== '' && author.value !== '') {
-          list.insertAdjacentElement('beforeend', li);
-        }
+        list.append(li);
+        name.value = '';
+        author.value = '';
       });
 
       list.addEventListener('click', (e) => {
@@ -122,6 +128,23 @@
           e.target.parentElement.parentElement.remove();
         }
       });
+
+      // list.addEventListener('click', (e) => {
+      //   if (e.target.id === 'del') {
+      //     e.target.parentElement.parentElement.remove();
+      //   }
+      // });
+
+      // const li = document.createElement('li');
+      //   const item = `<span>${name.value}</span>
+      //       <small>${author.value}</small>
+      //       <span>
+      //         <button id="del">Delete</button>
+      //       </span>`;
+      //   li.innerHTML = item;
+      //   if (name.value !== '' && author.value !== '') {
+      //     list.insertAdjacentElement('beforeend', li);
+      //   }
     </script>
   </body>
 </html>

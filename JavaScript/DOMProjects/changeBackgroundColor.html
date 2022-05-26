@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BackgroundColor</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       .container {
         display: flex;
         justify-content: center;
@@ -28,15 +33,12 @@
         width: 50px;
         border: 1px solid #ccc;
         border-radius: 50%;
-      }
-      #box1,
-      #box2,
-      #box3 {
         display: flex;
         justify-content: center;
         align-items: center;
         cursor: pointer;
       }
+
       #box1 {
         background-color: #ffbf00;
       }
@@ -64,19 +66,23 @@
       const innerbox = document.querySelector('.innerbox');
       const container = document.querySelector('.container');
 
-      // box1.addEventListener('click', function () {
+      // box1.addEventListener('click', function (e) {
+      //   console.log(e);
       //   container.style.backgroundColor = '#ffbf00';
       // });
-      // box2.addEventListener('click', function () {
+      // box2.addEventListener('click', function (e) {
+      //   console.log(e.target);
       //   container.style.backgroundColor = '#ff7f50';
       // });
-      // box3.addEventListener('click', function () {
+      // box3.addEventListener('click', function (e) {
+      //   console.log(e.target);
       //   container.style.backgroundColor = '#40e0d0';
       // });
 
       // Second way
       container.addEventListener('click', function (e) {
         let color;
+        console.log(e.target);
         switch (e.target.id) {
           case 'innerbox':
             color = '#fff';
